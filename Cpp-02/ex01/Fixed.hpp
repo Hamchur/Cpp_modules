@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hamchur <hamchur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/09 15:58:58 by hamchur           #+#    #+#             */
+/*   Updated: 2022/08/19 12:59:56 by hamchur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
+#include <iostream>
+#include <string>
+#include <cmath>
+
+class Fixed 
+{
+	private:
+		int	fixedPoint;
+		int static const	bitsNumber = 8;
+
+	public:
+		Fixed();
+		Fixed(const Fixed &source);
+		Fixed	&operator=(const Fixed &other);
+		Fixed(const int value);
+		Fixed(const float value);
+		~Fixed();
+		
+		int getRawBits( void ) const;
+		void setRawBits( int const raw );
+		int	toInt(void) const;
+		float	toFloat(void) const;
+};
+
+std::ostream				&operator<<(std::ostream &out, const Fixed &in);
+
+#endif
